@@ -1,15 +1,29 @@
-//
-//  main.c
-//  dz 2
-//
-//  Created by Дарья Ерешко on 28/09/2019.
-//  Copyright © 2019 Дарья Ерешко. All rights reserved.
-//
-
 #include <stdio.h>
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+#include <math.h>
+#include <stdlib.h>
+int main() {
+    int a,b,l;
+    scanf ("%d%d", &a, &b);
+    if (a>=0 && b<0){
+        l=a/abs(b);
+        b=-l*b;
+        a = a-b;
+    }
+    if  (a<0 && b<0){
+        l=a/b;
+        l=l+1;
+        b=l*b;
+        a = abs(b)-abs(a);
+    }
+    if (a>=0 && b>=0){
+        l=a/b;
+        a = a-b*l;
+    }
+    if(a<0 && b>=0){
+        l=abs(a)/b;
+        l=l+1;
+        b=-l*b;
+        a = abs(b)-abs(a);
+    }
+    printf ("%d\n", a);
 }
